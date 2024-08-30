@@ -21,4 +21,15 @@ Added later were Random Forest Classifier and SVC due to randomness
 
 That randomness was later used to find the best recall scores for the respective models...if anyone knows of a way to automate this process, that would greatly appreciated!
 
-The models that performed the best in that iterative process of finding the seed were GaussianNB, LinearSVC, XGBoost, and RandomForest
+The models that performed the best in that iterative process of finding the seed were GaussianNB, LinearSVC, XGBoost, and RandomForest. Those models were used in two ensemble techniques - Voting and Stacking - as well as hyper-parameter tuned for further exploration and evaluation. 
+- The GaussianNB and LinearSVC models were the top performers after this process with ~ 80% recall scores for both classes
+
+Hyperopt was used on the Random Forest and XGBoost models with the Random Forest model performing the best of the two with ~ 67% and ~ 80% for the positive and negative classes repectively
+
+## Feature Elimination
+The last task was to see what features were necessary for modeling purposes and which ones needed to be eliminated from the dataset as well as thrown out of the questionaire.
+
+Using Recursive Feature Elimination (RFE) and Recursive Feature Elimination Cross Validation (RFECV) I was able to see that 4,5, or 6 questions were the most the model needed. After further exploration, question 6 was by far the least likely feature to make a difference in the model and question 1 was the next, but one could make an argument for keeping the feature in the dataset using the RFECV approach.
+
+## Conclusion
+After all was said and done the final analysis looked to be that a GaussianNB model with question 6 eliminated from the dataset looked to provide an adequate enough performance metric of ~80% and ~69% for the positive and negative class respectively and an ROC score of ~.76.
